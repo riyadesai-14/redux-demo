@@ -2,7 +2,7 @@ import { FETCH_POSTS_REQUEST, FETCH_POSTS_SUCCESS, FETCH_POSTS_FAILURE} from './
 
 const initialState ={
     loading: false,
-    posts: [],
+    posts: {},
     error: ''
 }
 

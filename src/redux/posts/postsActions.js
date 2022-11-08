@@ -25,12 +25,14 @@ const fetchPostFailure = (error) => {
   };
 };
 
-export const fetchPosts = () => {
+export const fetchPosts = (number) => {
+    console.log(number);
   return async (dispatch) => {
     dispatch(fetchPostRequest());
     return await axios
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get(`https://jsonplaceholder.typicode.com/posts/${number}`)
       .then((response) => {
+        console.log(response, "------------");
         dispatch(fetchPostSuccess(response.data));
       })
       .catch((error) => {
