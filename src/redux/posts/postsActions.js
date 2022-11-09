@@ -25,12 +25,31 @@ const fetchPostFailure = (error) => {
   };
 };
 
-export const fetchPosts = (number) => {
-    console.log(number);
+// export const fetchPosts = (number) => {
+//     console.log(number);
+//   return async (dispatch) => {
+//     dispatch(fetchPostRequest());
+//     return await axios
+//       .get(`https://jsonplaceholder.typicode.com/posts/${number}`)
+//       .then((response) => {
+//         console.log(response, "------------");
+//         dispatch(fetchPostSuccess(response.data));
+//       })
+//       .catch((error) => {
+//         dispatch(fetchPostFailure(error.message));
+//       });
+//   };
+// };
+
+export const fetchUserId = (number) => {
+  const max = number * 10;
+  const min = max - 10;
+  const num = Math.floor(Math.random() * (max - min) + min);
+
   return async (dispatch) => {
     dispatch(fetchPostRequest());
     return await axios
-      .get(`https://jsonplaceholder.typicode.com/posts/${number}`)
+      .get(`https://jsonplaceholder.typicode.com/posts/${num}`)
       .then((response) => {
         console.log(response, "------------");
         dispatch(fetchPostSuccess(response.data));
