@@ -39,3 +39,22 @@ export const fetchUsers = () => {
         })
     }
 }
+
+
+export const fetchUserId= (id) => {
+    console.log("------");
+    return (dispatch) => {
+        // dispatch(fetchUserRequest())
+        axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+        .then(response => {
+            const users = response.data
+            console.log("====", response.data);
+            dispatch(fetchUserSuccess(users))
+        })
+        .catch(error => {
+            const errorMsg = error.message
+            console.log(error, "******");
+            dispatch(fetchUserFailure(errorMsg))
+        })
+    }
+}
