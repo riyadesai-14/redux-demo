@@ -11,7 +11,7 @@ function About() {
   useEffect(() => {
     dispatch(fetchUserId(location.state));
   }, []);
-  console.log(location);
+
   return (
     <div>
       <>
@@ -29,9 +29,11 @@ function About() {
       <>
         <b>Email : </b> {user.email}
       </>
-      {/* <>
-        <b>user city : </b> {user?.address?.street}
-      </> */}
+      <br />
+      <>
+        {/* <b>user city : </b>{user?.address?.city} */}
+        <b>user city : </b>{user && user.address && user.address.city}
+      </>
       <br />
     </div>
   );
